@@ -9,8 +9,6 @@ void Program::Awake()
 
 	ImGui::Create(WindowDesc::GetHwnd(), D3DDevice, D3DDeviceContext);
 	ImGui::StyleColorsDark();
-
-	EditorMain::GetInstance();
 }
 
 void Program::Start()

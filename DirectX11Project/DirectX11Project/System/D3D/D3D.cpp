@@ -4,10 +4,10 @@
 #include "Buffer\RenderTarget.h"
 #include "Viewport\ViewPort.h"
 #include "State\DepthStencilState.h"
-
+#include "System\Editor\EditorMain\EditorMain.h"
 D3D::D3D()
 	:mNumerator(0), mDenominator(1), mRenderTarget(nullptr), mViewPort(nullptr),
-	mDevice(nullptr),mDeviceContext(nullptr), mSwapChain(nullptr){}
+	mDevice(nullptr), mDeviceContext(nullptr), mSwapChain(nullptr) {}
 
 
 D3D::~D3D()
@@ -177,6 +177,8 @@ void D3D::EndRender()
 
 void D3D::OnResizeScreen(float width, float height)
 {
+	if (D3D::GetInstance()->IsPerfect() == false)return;
+
 	WindowDesc desc;
 	WindowDesc::GetDesc(&desc);
 	{

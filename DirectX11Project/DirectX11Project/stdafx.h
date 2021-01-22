@@ -7,7 +7,7 @@
 
 #include "targetver.h"
 
-#define WIN32_LEAN_AND_MEAN             // 거의 사용되지 않는 내용을 Windows 헤더에서 제외합니다.
+//#define WIN32_LEAN_AND_MEAN             // 거의 사용되지 않는 내용을 Windows 헤더에서 제외합니다.
 // Windows 헤더 파일
 #include <windows.h>
 
@@ -28,6 +28,7 @@ using namespace std;
 #include "Library.h"
 #include "DefineHeader.h"
 
+#include "Util\Delegate\Delegate.h"
 #include "./System/Window/Window.h"
 #include "./System/D3D/D3D.h"
 #include "./System/Input/Input.h"

@@ -94,7 +94,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>./;./Etc/;../Libraries/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./;./Etc/;../Libraries/;../Libreries/json/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -155,7 +155,10 @@
   <ItemGroup>
     <ClInclude Include="System\Editor\EditorMain\EditorMain.h" />
     <ClInclude Include="System\D3D\State\DepthStencilState.h" />
+    <ClInclude Include="System\Editor\Interface\EditorIneterface.h" />
     <ClInclude Include="System\Input\Input.h" />
+    <ClInclude Include="Util\Json\Json.h" />
+    <ClInclude Include="Util\Path\Path.h" />
     <ClInclude Include="Util\Singleton\TSingleton.h" />
     <ClInclude Include="Util\IniData\IniFile.h" />
     <ClInclude Include="Util\Delegate\Delegate.h" />
@@ -178,6 +181,8 @@
     <ClCompile Include="System\D3D\State\DepthStencilState.cpp" />
     <ClCompile Include="System\Input\Input.cpp" />
     <ClCompile Include="System\Window\Window + WndPoc.cpp" />
+    <ClCompile Include="Util\Json\Json.cpp" />
+    <ClCompile Include="Util\Path\Path.cpp" />
     <ClCompile Include="Util\Singleton\TSingleton.cpp" />
     <ClCompile Include="Util\IniData\IniFile.cpp" />
     <ClCompile Include="Util\Delegate\Delegate.cpp" />

@@ -72,6 +72,15 @@
     <ClInclude Include="Util\StringHelper\StringHelper.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Util\Path\Path.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Util\Json\Json.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="System\Editor\Interface\EditorIneterface.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DirectX11Project.cpp">
@@ -120,6 +129,12 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Util\StringHelper\StringHelper.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Util\Path\Path.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Util\Json\Json.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
