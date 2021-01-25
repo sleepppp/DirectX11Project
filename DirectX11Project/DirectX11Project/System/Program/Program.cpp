@@ -9,11 +9,13 @@ void Program::Awake()
 
 	ImGui::Create(WindowDesc::GetHwnd(), D3DDevice, D3DDeviceContext);
 	ImGui::StyleColorsDark();
+
+	Editor::EditorMain::GetInstance()->Awake();
 }
 
 void Program::Start()
 {
-
+	Editor::EditorMain::GetInstance()->Start();
 }
 
 void Program::PreUpdate()
@@ -42,14 +44,14 @@ void Program::Render()
 }
 void Program::PostRender()
 {
-	ImGui::ShowDemoWindow();
+
 	ImGui::Render();
 	D3D::GetInstance()->EndRender();
 }
 
 void Program::OnDestroy()
 {
-	EditorMain::ReleaseInstance();
+	Editor::EditorMain::ReleaseInstance();
 
 	ImGui::Delete();
 }

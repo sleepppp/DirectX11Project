@@ -153,6 +153,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="System\Editor\Common\EditorDesc.h" />
+    <ClInclude Include="System\Editor\MainMenu\EditorMainMenu.h" />
+    <ClInclude Include="System\Editor\Base\EditorBase.h" />
+    <ClInclude Include="System\Editor\Common\EditorCommon.h" />
     <ClInclude Include="System\Editor\EditorMain\EditorMain.h" />
     <ClInclude Include="System\D3D\State\DepthStencilState.h" />
     <ClInclude Include="System\Editor\Interface\EditorIneterface.h" />
@@ -177,6 +181,9 @@
     <ClInclude Include="Util\StringHelper\StringHelper.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="System\Editor\Common\EditorDesc.cpp" />
+    <ClCompile Include="System\Editor\MainMenu\EditorMainMenu.cpp" />
+    <ClCompile Include="System\Editor\Base\EditorBase.cpp" />
     <ClCompile Include="System\Editor\EditorMain\EditorMain.cpp" />
     <ClCompile Include="System\D3D\State\DepthStencilState.cpp" />
     <ClCompile Include="System\Input\Input.cpp" />

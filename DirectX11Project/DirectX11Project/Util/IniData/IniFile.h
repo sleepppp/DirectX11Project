@@ -1,6 +1,10 @@
 #pragma once
 class IniFile final
 {
+public:
+	static const wstring True;
+	static const wstring False;
+private:
 	struct IniData
 	{
 		wstring Subject;	//Ç×¸ñ

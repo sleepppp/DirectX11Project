@@ -29,3 +29,7 @@ inline void ErrorMessage(HWND hwnd ,const wstring& str)
 {
 	MessageBox(hwnd, str.c_str(), str.c_str(), MB_ICONERROR);
 }
+
+#define PathEditorData(path) (wstring(L"../EditorData/").append(path))
+#define PathResources(path)(wstring(L"../Resources/").append(path))
+

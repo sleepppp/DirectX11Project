@@ -3,13 +3,16 @@
 
 #include <fstream>
 
+const wstring IniFile::True = L"1";
+const wstring IniFile::False = L"0";
+
 IniFile::IniFile(const wstring & fileName)
-	:mFileName(fileName) 
+	:mFileName(fileName)
 {
-	//파일 없다면 생성
 	HANDLE handle = CreateFile(fileName.c_str(), GENERIC_READ, 0, NULL, OPEN_ALWAYS,
 		FILE_ATTRIBUTE_NORMAL, NULL);
 
+	//파일 없다면 생성
 	if (handle == NULL)
 	{
 		handle = CreateFile(fileName.c_str(), GENERIC_READ, 0, NULL, CREATE_NEW,

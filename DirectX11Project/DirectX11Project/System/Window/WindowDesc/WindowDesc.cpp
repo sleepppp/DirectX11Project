@@ -17,7 +17,7 @@ void WindowDesc::LoadWindowDesc()
 	wstring isFirstCompile = _WindowDescIniFile->GetData(L"Main", L"IsFirst");
 
 	//처음 에디터를 컴파일했다는 뜻
-	if (isFirstCompile != L"true")
+	if (isFirstCompile != IniFile::False)
 	{
 		_windowDesc.AppName = L"DirectX11Project";
 		_windowDesc.bFullScreen = false;
@@ -40,7 +40,7 @@ void WindowDesc::LoadWindowDesc()
 
 void WindowDesc::SaveWindowDesc()
 {
-	_WindowDescIniFile->AddData(L"Main", L"IsFirst", L"true");
+	_WindowDescIniFile->AddData(L"Main", L"IsFirst", IniFile::False);
 	_WindowDescIniFile->AddData(L"WindowDesc", L"AppName", _windowDesc.AppName);
 	_WindowDescIniFile->AddData(L"WindowDesc", L"bFullScreen", to_wstring((int)_windowDesc.bFullScreen));
 	_WindowDescIniFile->AddData(L"WindowDesc", L"bVsync", to_wstring((int)_windowDesc.bVsync));

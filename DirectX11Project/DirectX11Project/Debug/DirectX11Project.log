@@ -1,0 +1,68 @@
+﻿  stdafx.cpp
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d11.h(917): warning C4005: 'D3D11_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS': 매크로 재정의
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\winerror.h(55923): note: 'D3D11_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS'의 이전 정의를 참조하십시오.
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d11.h(918): warning C4005: 'D3D11_ERROR_FILE_NOT_FOUND': 매크로 재정의
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\winerror.h(55932): note: 'D3D11_ERROR_FILE_NOT_FOUND'의 이전 정의를 참조하십시오.
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d11.h(919): warning C4005: 'D3D11_ERROR_TOO_MANY_UNIQUE_VIEW_OBJECTS': 매크로 재정의
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\winerror.h(55942): note: 'D3D11_ERROR_TOO_MANY_UNIQUE_VIEW_OBJECTS'의 이전 정의를 참조하십시오.
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d11.h(920): warning C4005: 'D3D11_ERROR_DEFERRED_CONTEXT_MAP_WITHOUT_INITIAL_DISCARD': 매크로 재정의
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\winerror.h(55951): note: 'D3D11_ERROR_DEFERRED_CONTEXT_MAP_WITHOUT_INITIAL_DISCARD'의 이전 정의를 참조하십시오.
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d10.h(608): warning C4005: 'D3D10_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS': 매크로 재정의
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\winerror.h(55899): note: 'D3D10_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS'의 이전 정의를 참조하십시오.
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d10.h(609): warning C4005: 'D3D10_ERROR_FILE_NOT_FOUND': 매크로 재정의
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\winerror.h(55908): note: 'D3D10_ERROR_FILE_NOT_FOUND'의 이전 정의를 참조하십시오.
+  EditorBase.cpp
+  EditorMain.cpp
+c:\users\pc-012\documents\github\directx11project\directx11project\directx11project\system\editor\editormain\editormain.h(9): error C2143: 구문 오류: ';'이(가) 'public' 앞에 없습니다.
+c:\users\pc-012\documents\github\directx11project\directx11project\directx11project\system\editor\editormain\editormain.h(9): error C4430: 형식 지정자가 없습니다. int로 가정합니다. 참고: C++에서는 기본 int를 지원하지 않습니다.
+  DepthStencilState.cpp
+  Input.cpp
+  Window + WndPoc.cpp
+c:\users\pc-012\documents\github\directx11project\directx11project\directx11project\system\editor\editormain\editormain.h(9): error C2143: 구문 오류: ';'이(가) 'public' 앞에 없습니다.
+c:\users\pc-012\documents\github\directx11project\directx11project\directx11project\system\editor\editormain\editormain.h(9): error C4430: 형식 지정자가 없습니다. int로 가정합니다. 참고: C++에서는 기본 int를 지원하지 않습니다.
+  Json.cpp
+c:\users\pc-012\documents\github\directx11project\directx11project\directx11project\util\json\json.cpp(106): error C4996: 'Json::Reader::Reader': Use CharReader and CharReaderBuilder instead
+  c:\users\pc-012\documents\github\directx11project\directx11project\libraries\json\reader.h(55): note: 'Json::Reader::Reader' 선언을 참조하십시오.
+c:\users\pc-012\documents\github\directx11project\directx11project\directx11project\util\json\json.cpp(119): error C4996: 'Json::StyledWriter': Use StreamWriterBuilder instead
+  c:\users\pc-012\documents\github\directx11project\directx11project\libraries\json\writer.h(223): note: 'Json::StyledWriter' 선언을 참조하십시오.
+c:\users\pc-012\documents\github\directx11project\directx11project\directx11project\util\json\json.cpp(119): error C4996: 'Json::StyledWriter::__autoclassinit2': Use StreamWriterBuilder instead
+  c:\users\pc-012\documents\github\directx11project\directx11project\libraries\json\writer.h(257): note: 컴파일러에서 여기에 'Json::StyledWriter::__autoclassinit2'을(를) 생성했습니다.
+c:\users\pc-012\documents\github\directx11project\directx11project\directx11project\util\json\json.cpp(119): error C4996: 'Json::StyledWriter::StyledWriter': Use StreamWriterBuilder instead
+  c:\users\pc-012\documents\github\directx11project\directx11project\libraries\json\writer.h(225): note: 'Json::StyledWriter::StyledWriter' 선언을 참조하십시오.
+c:\users\pc-012\documents\github\directx11project\directx11project\directx11project\util\json\json.cpp(121): error C4996: 'Json::StyledWriter::write': Use StreamWriterBuilder instead
+  c:\users\pc-012\documents\github\directx11project\directx11project\libraries\json\writer.h(233): note: 'Json::StyledWriter::write' 선언을 참조하십시오.
+c:\users\pc-012\documents\github\directx11project\directx11project\directx11project\util\json\json.cpp(132): error C4996: 'Json::Reader::Reader': Use CharReader and CharReaderBuilder instead
+  c:\users\pc-012\documents\github\directx11project\directx11project\libraries\json\reader.h(55): note: 'Json::Reader::Reader' 선언을 참조하십시오.
+c:\users\pc-012\documents\github\directx11project\directx11project\directx11project\util\json\json.cpp(144): error C4996: 'Json::StyledWriter': Use StreamWriterBuilder instead
+  c:\users\pc-012\documents\github\directx11project\directx11project\libraries\json\writer.h(223): note: 'Json::StyledWriter' 선언을 참조하십시오.
+c:\users\pc-012\documents\github\directx11project\directx11project\directx11project\util\json\json.cpp(144): error C4996: 'Json::StyledWriter::__autoclassinit2': Use StreamWriterBuilder instead
+  c:\users\pc-012\documents\github\directx11project\directx11project\libraries\json\writer.h(257): note: 컴파일러에서 여기에 'Json::StyledWriter::__autoclassinit2'을(를) 생성했습니다.
+c:\users\pc-012\documents\github\directx11project\directx11project\directx11project\util\json\json.cpp(144): error C4996: 'Json::StyledWriter::StyledWriter': Use StreamWriterBuilder instead
+  c:\users\pc-012\documents\github\directx11project\directx11project\libraries\json\writer.h(225): note: 'Json::StyledWriter::StyledWriter' 선언을 참조하십시오.
+c:\users\pc-012\documents\github\directx11project\directx11project\directx11project\util\json\json.cpp(146): error C4996: 'Json::StyledWriter::write': Use StreamWriterBuilder instead
+  c:\users\pc-012\documents\github\directx11project\directx11project\libraries\json\writer.h(233): note: 'Json::StyledWriter::write' 선언을 참조하십시오.
+  Path.cpp
+  TSingleton.cpp
+  IniFile.cpp
+c:\users\pc-012\documents\github\directx11project\directx11project\directx11project\util\inidata\inifile.cpp(36): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\pc-012\documents\github\directx11project\directx11project\directx11project\util\inidata\inifile.cpp(55): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\pc-012\documents\github\directx11project\directx11project\directx11project\util\inidata\inifile.cpp(72): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\pc-012\documents\github\directx11project\directx11project\directx11project\util\inidata\inifile.cpp(103): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  Delegate.cpp
+  RenderTarget.cpp
+c:\users\pc-012\documents\github\directx11project\directx11project\directx11project\system\d3d\buffer\rendertarget.cpp(31): warning C4244: '=': 'float'에서 'UINT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\pc-012\documents\github\directx11project\directx11project\directx11project\system\d3d\buffer\rendertarget.cpp(32): warning C4244: '=': 'float'에서 'UINT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  D3D.cpp
+c:\users\pc-012\documents\github\directx11project\directx11project\directx11project\system\editor\editormain\editormain.h(9): error C2143: 구문 오류: ';'이(가) 'public' 앞에 없습니다.
+c:\users\pc-012\documents\github\directx11project\directx11project\directx11project\system\editor\editormain\editormain.h(9): error C4430: 형식 지정자가 없습니다. int로 가정합니다. 참고: C++에서는 기본 int를 지원하지 않습니다.
+  DirectX11Project.cpp
+  Program.cpp
+c:\users\pc-012\documents\github\directx11project\directx11project\directx11project\system\editor\editormain\editormain.h(9): error C2143: 구문 오류: ';'이(가) 'public' 앞에 없습니다.
+c:\users\pc-012\documents\github\directx11project\directx11project\directx11project\system\editor\editormain\editormain.h(9): error C4430: 형식 지정자가 없습니다. int로 가정합니다. 참고: C++에서는 기본 int를 지원하지 않습니다.
+c:\users\pc-012\documents\github\directx11project\directx11project\directx11project\system\program\program.cpp(52): error C2653: 'EditorMain': 클래스 또는 네임스페이스 이름이 아닙니다.
+c:\users\pc-012\documents\github\directx11project\directx11project\directx11project\system\program\program.cpp(52): error C3861: 'ReleaseInstance': 식별자를 찾을 수 없습니다.
+  Window.cpp
+  ViewPort.cpp
+  WindowDesc.cpp
+  StringHelper.cpp
+  코드를 생성하고 있습니다...
