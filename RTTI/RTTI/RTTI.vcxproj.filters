@@ -24,9 +24,15 @@
     <ClCompile Include="Value.cpp">
       <Filter>Reflection</Filter>
     </ClCompile>
+    <ClCompile Include="Field.cpp">
+      <Filter>Reflection</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Value.h">
+      <Filter>Reflection</Filter>
+    </ClInclude>
+    <ClInclude Include="Field.h">
       <Filter>Reflection</Filter>
     </ClInclude>
   </ItemGroup>
