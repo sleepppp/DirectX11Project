@@ -20,7 +20,7 @@
 #include <imguiDx11.h>
 #pragma comment(lib,"../Libraries/imGui.lib")
 
-#include <json/json.h>
-#pragma comment(lib, "jsoncpp.lib")
+#include <json.h>
+#pragma comment(lib, "../Libraries/jsoncpp.lib")
 
 #pragma warning(disable : 4996)

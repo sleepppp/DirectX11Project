@@ -1,0 +1,14 @@
+﻿  stdafx.cpp
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d11.h(917): warning C4005: 'D3D11_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS': 매크로 재정의
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\winerror.h(55923): note: 'D3D11_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS'의 이전 정의를 참조하십시오.
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d11.h(918): warning C4005: 'D3D11_ERROR_FILE_NOT_FOUND': 매크로 재정의
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\winerror.h(55932): note: 'D3D11_ERROR_FILE_NOT_FOUND'의 이전 정의를 참조하십시오.
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d11.h(919): warning C4005: 'D3D11_ERROR_TOO_MANY_UNIQUE_VIEW_OBJECTS': 매크로 재정의
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\winerror.h(55942): note: 'D3D11_ERROR_TOO_MANY_UNIQUE_VIEW_OBJECTS'의 이전 정의를 참조하십시오.
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d11.h(920): warning C4005: 'D3D11_ERROR_DEFERRED_CONTEXT_MAP_WITHOUT_INITIAL_DISCARD': 매크로 재정의
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\winerror.h(55951): note: 'D3D11_ERROR_DEFERRED_CONTEXT_MAP_WITHOUT_INITIAL_DISCARD'의 이전 정의를 참조하십시오.
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d10.h(608): warning C4005: 'D3D10_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS': 매크로 재정의
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\winerror.h(55899): note: 'D3D10_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS'의 이전 정의를 참조하십시오.
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d10.h(609): warning C4005: 'D3D10_ERROR_FILE_NOT_FOUND': 매크로 재정의
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\winerror.h(55908): note: 'D3D10_ERROR_FILE_NOT_FOUND'의 이전 정의를 참조하십시오.
+c:\users\pc-012\documents\github\directx11project\directx11project\directx11project\library.h(19): fatal error C1083: 포함 파일을 열 수 없습니다. 'imgui.h': No such file or directory

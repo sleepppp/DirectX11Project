@@ -7,3 +7,4 @@ namespace Editor
 	};
 }
 
+//#define EditorMainMenu(ClassName,FuncName)\

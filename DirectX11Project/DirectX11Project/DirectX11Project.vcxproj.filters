@@ -75,9 +75,6 @@
     <ClInclude Include="Util\Path\Path.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Util\Json\Json.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="System\Editor\Interface\EditorIneterface.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
@@ -91,6 +88,9 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="System\Editor\Common\EditorDesc.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Util\Json\Json.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
@@ -146,9 +146,6 @@
     <ClCompile Include="Util\Path\Path.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Util\Json\Json.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="System\Editor\Base\EditorBase.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
@@ -156,6 +153,9 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="System\Editor\Common\EditorDesc.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Util\Json\Json.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

@@ -25,7 +25,7 @@ void Program::PreUpdate()
 
 void Program::Update()
 {
-
+	Editor::EditorMain::GetInstance()->Update();
 }
 
 void Program::PostUpdate()
@@ -44,13 +44,14 @@ void Program::Render()
 }
 void Program::PostRender()
 {
-
+	Editor::EditorMain::GetInstance()->OnGui();
 	ImGui::Render();
 	D3D::GetInstance()->EndRender();
 }
 
 void Program::OnDestroy()
 {
+	Editor::EditorMain::GetInstance()->OnDestroy();
 	Editor::EditorMain::ReleaseInstance();
 
 	ImGui::Delete();
