@@ -27,6 +27,9 @@
     <ClCompile Include="Field.cpp">
       <Filter>Reflection</Filter>
     </ClCompile>
+    <ClCompile Include="Class.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Value.h">
@@ -34,6 +37,12 @@
     </ClInclude>
     <ClInclude Include="Field.h">
       <Filter>Reflection</Filter>
+    </ClInclude>
+    <ClInclude Include="Method.h">
+      <Filter>Reflection</Filter>
+    </ClInclude>
+    <ClInclude Include="Class.h">
+      <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

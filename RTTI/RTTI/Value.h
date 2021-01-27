@@ -8,7 +8,7 @@
 
 namespace Reflection
 {
-	class ClassUnKnwon;
+	class ClassUnknown;
 
 	//**************************************************************************
 	class Value
@@ -19,7 +19,7 @@ namespace Reflection
 		Value() = default;
 		virtual ~Value() = default;
 
-		virtual ClassUnKnwon& GetClass()const;
+		virtual ClassUnknown& GetClass()const;
 
 		template<typename T> operator T&();
 		template<typename T> operator T*();
