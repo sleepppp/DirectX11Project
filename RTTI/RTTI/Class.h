@@ -103,5 +103,111 @@ namespace Reflection
 
 		std::string GetName()const override { return TypeDescriptor<typename RemoveConstIf<T>::type>::Descriptor(); }
 	};
+
+	inline ClassUnknown* ClassUnknown::GetClass(void* instance)
+	{
+		if (!instance || Instances().count(instance) == 0)
+		{
+			return nullptr;
+		}
+		return Instances()[instance];
+	}
+
+	inline std::shared_ptr<Method> ClassUnknown::GetDeclaredMethod(const std::string& methodName)const
+	{
+		std::string descriptor = MethodDescriptor(GetName(), methodName, 0, nullptr);
+		return GetDeclaredMethodFromDescriptin(descriptor);
+	}
+
+	template<typename... P> 
+	std::shared_ptr<Method> ClassUnknown::GetDeclaredMethod(const std::string& methodName, const Class<P>&...parametorTypes)const
+	{
+		std::string parameterTypeDescriptors[] = { parameterTypes.GetName()... };
+		std::string descriptor = MethodDescriptor(GetName(), methodName, sizeof(P), parameterTypeDescriptors);
+		return GetDeclaredMethodFromDescriptin(descriptor);
+	}
+
+	inline std::shared_ptr<Field> ClassUnknown::GetDeclaredField(const std::string& fieldName)const
+	{
+		std::string descriptor = FieldDescriptor(GetName(), fieldName);
+		return GetDeclaredFieldFromDescription(descriptor);
+	}
+
+	inline bool ClassUnknown::IsAssignableFrom(ClassUnknown& other)
+	{
+		if (GetTypeid() == other.GetTypeid())
+			return true;
+		return false;
+	}
+
+	inline bool ClassUnknown::IsInstance(void* ptr)const
+	{
+		return Instances().count(ptr) > 0;
+	}
+
+	inline void ClassUnknown::TrackInstance(void* instance)
+	{
+		Instances().erase(instance);
+	}
+
+	template<typename T> ClassSharedData* ClassBase<T>::_sharedData;
+
+	template<typename T>
+	std::vector<std::shared_ptr<Method>> ClassBase<T>::GetDeclaredMethods()const
+	{
+		std::vector<std::shared_ptr<Field>> fields;
+		for (auto& field : _sharedData->mFields)
+		{
+			fields.push_back(field.second);
+		}
+		return fields;
+	}
+
+	template<typename T> template<typename...Args>
+	T* ClassBase<T>::NewInstance(LeakPtrTag, Args&&...args)
+	{
+		T* instance = new T(args);
+		ClassUnknown::TrackInstance(instance);
+		_sharedData->mInstances.insert(instance);
+		return instance;
+	}
+
+	template<typename T>template<typename...Args>
+	std::shared_ptr<T> ClassBase<T>::NewInstance(Args&&... args)
+	{
+		T* instance = NewInstance(LeakPtr, std::forward(args)...);
+
+		struct Deleter
+		{
+			std::function<void(T*)> mDeleter;
+			void operator()(T* ptr)const
+			{
+				mDeleter(ptr);
+			}
+		};
+
+		return std::shared_ptr<T>(instance, Deleter({ [=](T* ptr) {DeleteInstance(ptr); } }))
+	}
+
+	template<typename T>
+	void ClassBase<T>::DeleteInstance(T* instance)
+	{
+		ClassUnknown::ForgetInstance(instance);
+		_sharedData->mInstances.erase(instance);
+		delete instance;
+	}
+
+	template<typename T>
+	bool ClassBase<T>::IsInstance(void* ptr)const
+	{
+		return _sharedData->mInstance.count(ptr) > 0;
+	}
+
+	template<typename T> template<typename M>
+	void ClassBase<T>::SetDeclaredMethod(const std::string& methodName, M method)
+	{
+		std::string descriptor = MethodDescriptor<M>::Descriptor(GetName(), methodName);
+		_sharedData->mMethods[descriptor] = std::make_shared<DeducedMethod<M>>(methodName, method);
+	}
 }
 
