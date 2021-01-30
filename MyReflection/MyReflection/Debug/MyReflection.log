@@ -1,3 +1,58 @@
 ﻿  MyReflection.cpp
-F:\Kwonsoonwoo\DirectX11Project\MyReflection\MyReflection\MyReflection.cpp(20,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-  MyReflection.vcxproj -> F:\Kwonsoonwoo\DirectX11Project\MyReflection\Debug\MyReflection.exe
+  Test.cpp
+c:\users\user\onedrive\문서\github\directx11project\myreflection\myreflection\value.h(136): warning C4244: '=': 'float'에서 'T'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+          with
+          [
+              T=int
+          ]
+  c:\users\user\onedrive\문서\github\directx11project\myreflection\myreflection\value.h(136): note: 클래스 템플릿 멤버 함수 'void Reflection::NumberValue<int>::SetFloat(float)'을(를) 컴파일하고 있습니다.
+  c:\users\user\onedrive\문서\github\directx11project\myreflection\myreflection\value.h(257): note: 컴파일 중인 클래스 템플릿 인스턴스화 'Reflection::NumberValue<int>'에 대한 참조를 확인하세요.
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\type_traits(616): note: 컴파일 중인 클래스 템플릿 인스턴스화 'Reflection::TypedValue<T>'에 대한 참조를 확인하세요.
+          with
+          [
+              T=int
+          ]
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\memory(1227): note: 컴파일 중인 클래스 템플릿 인스턴스화 'std::is_convertible<_Yty *,_Ty *>'에 대한 참조를 확인하세요.
+          with
+          [
+              _Yty=Reflection::TypedValue<int>,
+              _Ty=Reflection::Value
+          ]
+  c:\users\user\onedrive\문서\github\directx11project\myreflection\myreflection\field.h(62): note: 컴파일 중인 클래스 템플릿 인스턴스화 'std::_SP_pointer_compatible<Reflection::TypedValue<T>,Reflection::Value>'에 대한 참조를 확인하세요.
+          with
+          [
+              T=int
+          ]
+  c:\users\user\onedrive\문서\github\directx11project\myreflection\myreflection\field.h(61): note: 클래스 템플릿 멤버 함수 'std::shared_ptr<Reflection::Value> Reflection::DeducedField<F>::Get(void *)'을(를) 컴파일하고 있습니다.
+          with
+          [
+              F=int Test::* 
+          ]
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\type_traits(616): note: 컴파일 중인 클래스 템플릿 인스턴스화 'Reflection::DeducedField<F>'에 대한 참조를 확인하세요.
+          with
+          [
+              F=int Test::* 
+          ]
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\memory(1227): note: 컴파일 중인 클래스 템플릿 인스턴스화 'std::is_convertible<_Yty *,_Ty *>'에 대한 참조를 확인하세요.
+          with
+          [
+              _Yty=Reflection::DeducedField<int Test::* >,
+              _Ty=Reflection::Field
+          ]
+  c:\users\user\onedrive\문서\github\directx11project\myreflection\myreflection\class.h(230): note: 컴파일 중인 클래스 템플릿 인스턴스화 'std::_SP_pointer_compatible<Reflection::DeducedField<F>,Reflection::Field>'에 대한 참조를 확인하세요.
+          with
+          [
+              F=int Test::* 
+          ]
+  c:\users\user\onedrive\문서\github\directx11project\myreflection\myreflection\test.cpp(7): note: 컴파일 중인 함수 템플릿 인스턴스화 'void Reflection::ClassBase<Test>::SetDeclaredField<intTest::* >(const std::string &,F)'에 대한 참조를 확인하십시오.
+          with
+          [
+              F=int Test::* 
+          ]
+  c:\users\user\onedrive\문서\github\directx11project\myreflection\myreflection\test.cpp(7): note: 컴파일 중인 함수 템플릿 인스턴스화 'void Reflection::ClassBase<Test>::SetDeclaredField<intTest::* >(const std::string &,F)'에 대한 참조를 확인하십시오.
+          with
+          [
+              F=int Test::* 
+          ]
+  코드를 생성하고 있습니다...
+  MyReflection.vcxproj -> C:\Users\user\OneDrive\문서\GitHub\DirectX11Project\MyReflection\Debug\MyReflection.exe

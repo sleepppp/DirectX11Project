@@ -20,24 +20,24 @@ namespace Reflection
 		virtual void Set(void* instance, Value* value) = 0;
 	};
 
-	template<typename DataType> class DeducedField;
+	template<typename T> class DeducedField;
 
-	template<typename DataType,typename Class>
-	class DeducedField<DataType(Class::*)> : public Field
+	template<typename T,typename C>
+	class DeducedField<T(C::*)> : public Field
 	{
-		DataType(Class::* mFieldPtr);
+		T(C::* mFieldPtr);
 
 		std::shared_ptr<Value> Get(void* instance)override;
 		void Set(void* instance, Value* value)override;
 	public:
-		DeducedField(const std::string& name, DataType(Class::* field))
+		DeducedField(const std::string& name, T(C::* field))
 			:Field(name), mFieldPtr(field) {}
 
-		DataType Get(Class& object)
+		T Get(C& object)
 		{
 			return object.*mFieldPtr;
 		}
-		void Set(Class& object, DataType&& value)
+		void Set(C& object, T&& value)
 		{
 			(object.*mFieldPtr) = value;
 		}
@@ -56,16 +56,16 @@ namespace Reflection
 		Set(static_cast<void*>(&instance), static_cast<Value*>(TypedValue<T>(value)));
 	}
 
-	template<typename DataType,typename Class>
-	std::shared_ptr<Value> DeducedField<DataType(Class::*)>::Get(void* instance)
+	template<typename T,typename C>
+	std::shared_ptr<Value> DeducedField<T(C::*)>::Get(void* instance)
 	{
-		return std::make_shared<TypedValue<DataType>>(Get(*(static_cast<Class*>(instance))));
+		return std::make_shared<TypedValue<T>>(Get(*(static_cast<C*>(instance))));
 	}
 
-	template<typename DataType, typename Class>
-	void DeducedField<DataType(Class::*)>::Set(void* instance, Value* value)
+	template<typename T, typename C>
+	void DeducedField<T(C::*)>::Set(void* instance, Value* value)
 	{
-		Set(*(static_cast<Class*>(instance)), static_cast<DataType>(*value));
+		Set(*(static_cast<C*>(instance)), static_cast<T>(*value));
 	}
 }
 

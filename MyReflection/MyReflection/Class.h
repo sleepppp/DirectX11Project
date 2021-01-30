@@ -226,7 +226,7 @@ namespace Reflection
 	template<typename T> template<typename F>
 	void ClassBase<T>::SetDeclaredField(const std::string& fieldName,F field)
 	{
-		std::string descriptor = FieldDescriptor<F>::Descriptor(GetName(), field);
+		std::string descriptor = FieldDescriptor<F>::Descriptor(GetName(), fieldName);
 		_sharedData->mFields[descriptor] = std::make_shared<DeducedField<F>>(fieldName, field);
 	}
 
