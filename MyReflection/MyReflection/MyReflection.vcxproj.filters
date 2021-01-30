@@ -5,10 +5,6 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="리소스 파일">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
     <Filter Include="Reflection">
       <UniqueIdentifier>{3891a72f-e57a-470d-bb62-9733f0d9bb37}</UniqueIdentifier>
     </Filter>
@@ -22,6 +18,19 @@
     <Filter Include="Reflection\Field">
       <UniqueIdentifier>{c0f77bcb-d569-4f0a-830f-41f991d64399}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Reflection\Class">
+      <UniqueIdentifier>{af8f72df-9d44-4ef2-b690-4bd9f2a25674}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Reflection\Method">
+      <UniqueIdentifier>{449cf177-7f17-48f4-b774-e3f7163bc70b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Reflection\Descriptor">
+      <UniqueIdentifier>{3b6bcb91-7e80-4436-8d57-bd516da74368}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MyReflection.cpp">
@@ -33,14 +42,20 @@
     <ClCompile Include="Value.cpp">
       <Filter>Reflection\Value</Filter>
     </ClCompile>
-    <ClCompile Include="NumberValue.cpp">
-      <Filter>Reflection\Value</Filter>
-    </ClCompile>
-    <ClCompile Include="StringValue.cpp">
-      <Filter>Reflection\Value</Filter>
-    </ClCompile>
     <ClCompile Include="Field.cpp">
       <Filter>Reflection\Field</Filter>
+    </ClCompile>
+    <ClCompile Include="Class.cpp">
+      <Filter>Reflection\Class</Filter>
+    </ClCompile>
+    <ClCompile Include="Method.cpp">
+      <Filter>Reflection\Method</Filter>
+    </ClCompile>
+    <ClCompile Include="FieldDescriptor.cpp">
+      <Filter>Reflection\Field</Filter>
+    </ClCompile>
+    <ClCompile Include="MethodDescriptor.cpp">
+      <Filter>Reflection\Method</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -53,13 +68,22 @@
     <ClInclude Include="Value.h">
       <Filter>Reflection\Value</Filter>
     </ClInclude>
-    <ClInclude Include="NumberValue.h">
-      <Filter>Reflection\Value</Filter>
-    </ClInclude>
-    <ClInclude Include="StringValue.h">
-      <Filter>Reflection\Value</Filter>
-    </ClInclude>
     <ClInclude Include="Field.h">
+      <Filter>Reflection\Field</Filter>
+    </ClInclude>
+    <ClInclude Include="Class.h">
+      <Filter>Reflection\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="Method.h">
+      <Filter>Reflection\Method</Filter>
+    </ClInclude>
+    <ClInclude Include="TypeDescriptor.h">
+      <Filter>Reflection\Descriptor</Filter>
+    </ClInclude>
+    <ClInclude Include="MethodDescriptor.h">
+      <Filter>Reflection\Method</Filter>
+    </ClInclude>
+    <ClInclude Include="FieldDescriptor.h">
       <Filter>Reflection\Field</Filter>
     </ClInclude>
   </ItemGroup>

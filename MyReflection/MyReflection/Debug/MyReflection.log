@@ -1,2 +1,3 @@
-﻿  StringValue.cpp
-  MyReflection.vcxproj -> C:\Users\pc-012\Documents\GitHub\DirectX11Project\MyReflection\Debug\MyReflection.exe
+﻿  MyReflection.cpp
+F:\Kwonsoonwoo\DirectX11Project\MyReflection\MyReflection\MyReflection.cpp(20,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  MyReflection.vcxproj -> F:\Kwonsoonwoo\DirectX11Project\MyReflection\Debug\MyReflection.exe
