@@ -8,4 +8,3 @@ public:
 };
 
 TYPE_DESCRIPTOR(Test)
-

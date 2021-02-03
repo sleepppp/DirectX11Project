@@ -53,7 +53,9 @@ namespace Reflection
 	template<typename T, typename C>
 	void Field::Set(C& instance, T&& value)
 	{
-		Set(static_cast<void*>(&instance), static_cast<Value*>(TypedValue<T>(value)));
+		void* voidPtr = static_cast<void*>(&instance);
+		Value* valuePtr = static_cast<Value*>(TypedValue<T>(value));
+		Set(voidPtr,valuePtr);
 	}
 
 	template<typename T,typename C>

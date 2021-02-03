@@ -47,7 +47,7 @@ namespace Reflection
 	{
 		R(*mMethod)(P...);
 	private:
-		std::vector<ClassUnknown*> GetParameterTypes()override;
+		std::vector<ClassUnknown*> GetParameterTypes()override;         
 		std::shared_ptr<Value> Invoke(nullptr_t, Value* [])override;
 		std::shared_ptr<Value> Invoke(void* instance, Value* [])override;
 

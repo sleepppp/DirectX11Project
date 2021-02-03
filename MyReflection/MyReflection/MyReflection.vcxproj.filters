@@ -62,9 +62,6 @@
     <ClInclude Include="resource.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Test.h">
-      <Filter>소스 파일</Filter>
-    </ClInclude>
     <ClInclude Include="Value.h">
       <Filter>Reflection\Value</Filter>
     </ClInclude>
@@ -85,6 +82,9 @@
     </ClInclude>
     <ClInclude Include="FieldDescriptor.h">
       <Filter>Reflection\Field</Filter>
+    </ClInclude>
+    <ClInclude Include="Test.h">
+      <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
