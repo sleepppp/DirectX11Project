@@ -11,6 +11,8 @@ using namespace std;
 
 #define GetTypeName(Type) (#Type)
 
+using namespace Reflection;
+
 int main()
 {
 	

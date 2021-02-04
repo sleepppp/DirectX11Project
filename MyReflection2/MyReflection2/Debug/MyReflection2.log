@@ -1,0 +1,7 @@
+﻿cl : 명령줄 warning D9002: 알 수 없는 '/await/std::c++lastest' 옵션을 무시합니다.
+  Field.cpp
+  Method.cpp
+  MyReflection2.cpp
+  Value.cpp
+  코드를 생성하고 있습니다...
+  MyReflection2.vcxproj -> C:\Users\pc-012\Documents\GitHub\DirectX11Project\MyReflection2\Debug\MyReflection2.exe

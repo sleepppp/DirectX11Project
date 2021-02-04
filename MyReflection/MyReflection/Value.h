@@ -129,8 +129,8 @@ namespace Reflection
 		bool IsString()const override { return false; }
 		bool IsFuncion()const override { return false; }
 
-		int GetInt()const override { return static_cast<int>(mValue); }
-		void SetInt(int value)override { mValue = value; }
+		virtual int GetInt()const override { return static_cast<int>(mValue); }
+		virtual void SetInt(int value)override { mValue = value; }
 
 		virtual float GetFloat()const override { return static_cast<float>(mValue); }
 		virtual void SetFloat(float value)override { mValue = value; }
