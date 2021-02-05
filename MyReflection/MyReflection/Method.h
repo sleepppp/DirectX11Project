@@ -177,7 +177,7 @@ namespace Reflection
 	template<typename R, typename C, typename... P>
 	std::shared_ptr<Value> DeducedMethod<R(C::*) (P...)>::Invoke(void* receiver, Value* values[])
 	{
-		return forward(receiver, values, std::make_index_sequence<sizeof...(P)>());
+		return Forward(receiver, values, std::make_index_sequence<sizeof...(P)>());
 	}
 
 	template<typename R, typename C, typename... P> template<size_t... I>

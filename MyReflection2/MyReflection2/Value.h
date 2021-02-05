@@ -10,7 +10,11 @@ namespace Reflection
 		std::any mValue;
 	public:
 		Value() = default;
-		template<typename T> Value(const T& value) :mValue(value) {}
+		template<typename T> 
+		Value( T value) 
+		{ 
+			mValue = value; 
+		}
 		virtual ~Value() = default;
 
 		bool IsNum()const;
@@ -26,7 +30,7 @@ namespace Reflection
 		std::string GetString();
 
 		template<typename T> inline T Get();
-		template<typename T> inline void Set(const T& t);
+		template<typename T> inline void Set(T t);
 	};
 
 	template<typename T>
@@ -36,7 +40,7 @@ namespace Reflection
 	}
 
 	template<typename T>
-	inline void Value::Set(const T & value)
+	inline void Value::Set(T value)
 	{
 		mValue = value;
 	}

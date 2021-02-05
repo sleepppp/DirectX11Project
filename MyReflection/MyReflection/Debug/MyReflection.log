@@ -1,59 +1,6 @@
 ﻿  MyReflection.cpp
-c:\users\pc-012\documents\github\directx11project\myreflection\myreflection\myreflection.cpp(34): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-  Test.cpp
-c:\users\pc-012\documents\github\directx11project\myreflection\myreflection\value.h(136): warning C4244: '=': 'float'에서 'T'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-          with
-          [
-              T=int
-          ]
-  c:\users\pc-012\documents\github\directx11project\myreflection\myreflection\value.h(136): note: 클래스 템플릿 멤버 함수 'void Reflection::NumberValue<int>::SetFloat(float)'을(를) 컴파일하고 있습니다.
-  c:\users\pc-012\documents\github\directx11project\myreflection\myreflection\value.h(257): note: 컴파일 중인 클래스 템플릿 인스턴스화 'Reflection::NumberValue<int>'에 대한 참조를 확인하세요.
-  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\type_traits(616): note: 컴파일 중인 클래스 템플릿 인스턴스화 'Reflection::TypedValue<T>'에 대한 참조를 확인하세요.
-          with
-          [
-              T=int
-          ]
-  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\memory(1227): note: 컴파일 중인 클래스 템플릿 인스턴스화 'std::is_convertible<_Yty *,_Ty *>'에 대한 참조를 확인하세요.
-          with
-          [
-              _Yty=Reflection::TypedValue<int>,
-              _Ty=Reflection::Value
-          ]
-  c:\users\pc-012\documents\github\directx11project\myreflection\myreflection\field.h(64): note: 컴파일 중인 클래스 템플릿 인스턴스화 'std::_SP_pointer_compatible<Reflection::TypedValue<T>,Reflection::Value>'에 대한 참조를 확인하세요.
-          with
-          [
-              T=int
-          ]
-  c:\users\pc-012\documents\github\directx11project\myreflection\myreflection\field.h(63): note: 클래스 템플릿 멤버 함수 'std::shared_ptr<Reflection::Value> Reflection::DeducedField<F>::Get(void *)'을(를) 컴파일하고 있습니다.
-          with
-          [
-              F=int Test::* 
-          ]
-  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\type_traits(616): note: 컴파일 중인 클래스 템플릿 인스턴스화 'Reflection::DeducedField<F>'에 대한 참조를 확인하세요.
-          with
-          [
-              F=int Test::* 
-          ]
-  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\memory(1227): note: 컴파일 중인 클래스 템플릿 인스턴스화 'std::is_convertible<_Yty *,_Ty *>'에 대한 참조를 확인하세요.
-          with
-          [
-              _Yty=Reflection::DeducedField<int Test::* >,
-              _Ty=Reflection::Field
-          ]
-  c:\users\pc-012\documents\github\directx11project\myreflection\myreflection\class.h(230): note: 컴파일 중인 클래스 템플릿 인스턴스화 'std::_SP_pointer_compatible<Reflection::DeducedField<F>,Reflection::Field>'에 대한 참조를 확인하세요.
-          with
-          [
-              F=int Test::* 
-          ]
-  c:\users\pc-012\documents\github\directx11project\myreflection\myreflection\test.cpp(7): note: 컴파일 중인 함수 템플릿 인스턴스화 'void Reflection::ClassBase<Test>::SetDeclaredField<intTest::* >(const std::string &,F)'에 대한 참조를 확인하십시오.
-          with
-          [
-              F=int Test::* 
-          ]
-  c:\users\pc-012\documents\github\directx11project\myreflection\myreflection\test.cpp(7): note: 컴파일 중인 함수 템플릿 인스턴스화 'void Reflection::ClassBase<Test>::SetDeclaredField<intTest::* >(const std::string &,F)'에 대한 참조를 확인하십시오.
-          with
-          [
-              F=int Test::* 
-          ]
-  코드를 생성하고 있습니다...
-  MyReflection.vcxproj -> C:\Users\pc-012\Documents\GitHub\DirectX11Project\MyReflection\Debug\MyReflection.exe
+c:\users\pc-012\documents\github\directx11project\myreflection\myreflection\method.h(123): error C2672: 'Forward': 일치하는 오버로드된 함수가 없습니다.
+  c:\users\pc-012\documents\github\directx11project\myreflection\myreflection\method.h(122): note: 클래스 템플릿 멤버 함수 'std::shared_ptr<Reflection::Value> Reflection::DeducedMethod<void (__cdecl *)(void)>::Invoke(std::nullptr_t,Reflection::Value *[])'을(를) 컴파일하고 있습니다.
+  c:\users\pc-012\documents\github\directx11project\myreflection\myreflection\myreflection.cpp(24): note: 컴파일 중인 클래스 템플릿 인스턴스화 'Reflection::DeducedMethod<void (__cdecl *)(void)>'에 대한 참조를 확인하세요.
+c:\users\pc-012\documents\github\directx11project\myreflection\myreflection\method.h(123): error C2783: 'std::shared_ptr<Reflection::Value> Reflection::Forward(std::enable_if<std::is_void<_Ty>::value,void>::type *,M,C &,P &&...)': 'R'의 템플릿 인수를 추론할 수 없습니다.
+  c:\users\pc-012\documents\github\directx11project\myreflection\myreflection\method.h(11): note: 'Reflection::Forward' 선언을 참조하십시오.
