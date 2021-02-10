@@ -160,7 +160,8 @@ void D3D::Init()
 
 void D3D::BeginRender()
 {
-	static const D3DXCOLOR clearColor = D3DXCOLOR(0.3f, 0.3f, 0.3f, 1.f);
+	const float clearColor[] = { 0.3f,0.3f,0.3f,1.f };
+	//static const D3DXCOLOR clearColor = D3DXCOLOR(0.3f, 0.3f, 0.3f, 1.f);
 	mRenderTarget->Bind();
 	mRenderTarget->Clear(clearColor);
 	mViewPort->Bind();

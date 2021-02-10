@@ -14,6 +14,6 @@ public:
 	ID3D11RenderTargetView* GetRenderTargetView()const { return mRenderTargetView; }
 
 	void Bind();
-	void Clear(D3DXCOLOR color);
+	void Clear(const float color[]);
 };
 

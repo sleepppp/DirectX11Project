@@ -24,13 +24,19 @@ std::tuple<T...> GetTuple(T&&... args)
 
 int main()
 {
-	Test test;
-	Method* method = new DeducedMethod<void(Test::*)()>("Func", &Test::Func);
-	method->Invoke(&test);
-	Method* method2 = new DeducedMethod<void(Test::*)(int)>("Print", &Test::Print);
-	method2->Invoke(&test, 100);
+	//Test test;
+	//Method* method = new DeducedMethod<void(Test::*)()>("Func", &Test::Func);
+	//method->Invoke(&test);
+	//Method* method2 = new DeducedMethod<void(Test::*)(int)>("Print", &Test::Print);
+	//method2->Invoke(&test, 100);
+	//
+	//delete method2;
+	//delete method;
 
-	delete method2;
-	delete method;
+	Value value(100);
+	Value value2(200);
+
+	std::tuple t = std::make_tuple(&value,&value2);
+	cout << t._Myfirst._Val->GetInt() << endl;
 }
 

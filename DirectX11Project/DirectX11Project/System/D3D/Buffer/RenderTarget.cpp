@@ -85,7 +85,7 @@ void RenderTarget::Bind()
 /*******************************************************************************
 ## clear ##
 ********************************************************************************/
-void RenderTarget::Clear(D3DXCOLOR color)
+void RenderTarget::Clear(const float color[])
 {
 #ifdef _DEBUG
 	//if (mRenderTargetView == nullptr)
