@@ -1,3 +1,12 @@
 ﻿cl : 명령줄 warning D9002: 알 수 없는 '/await/std::c++lastest' 옵션을 무시합니다.
+  DefineReflection.cpp
+  Field.cpp
   MyReflection2.cpp
+c:\users\pc-012\documents\github\directx11project\myreflection2\myreflection2\myreflection2.cpp(21): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\pc-012\documents\github\directx11project\myreflection2\myreflection2\myreflection2.cpp(26): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  Test.cpp
+  Type.cpp
+  코드를 생성하고 있습니다...
+c:\users\pc-012\documents\github\directx11project\myreflection2\myreflection2\type.h(55): warning C4715: 'Reflection::Type<Test>::GetName': 모든 제어 경로에서 값을 반환하지는 않습니다.
+c:\users\pc-012\documents\github\directx11project\myreflection2\myreflection2\type.h(55): warning C4715: 'Reflection::Type<Test>::GetName': 모든 제어 경로에서 값을 반환하지는 않습니다.
   MyReflection2.vcxproj -> C:\Users\pc-012\Documents\GitHub\DirectX11Project\MyReflection2\Debug\MyReflection2.exe

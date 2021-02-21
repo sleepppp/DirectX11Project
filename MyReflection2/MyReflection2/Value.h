@@ -1,7 +1,6 @@
 #pragma once
 #include <string>
 #include <any>
-#include <stdint.h>
 
 namespace Reflection
 {
@@ -10,12 +9,27 @@ namespace Reflection
 		std::any mValue;
 	public:
 		Value() = default;
+
 		template<typename T> 
-		Value( T value) 
+		Value(T value) 
 		{ 
 			mValue = value; 
 		}
-		virtual ~Value() = default;
+		Value(const Value& origin)
+		{
+			mValue = origin.mValue;
+		}
+
+		Value& operator=(const Value& origin)
+		{
+			mValue = origin.mValue;
+			return *this;
+		}
+
+		virtual ~Value()
+		{
+			int a = 3;
+		}
 
 		bool IsNum()const;
 		bool IsBool()const;
@@ -23,6 +37,7 @@ namespace Reflection
 		bool IsPtr()const;
 		bool IsFunc()const;
 		bool IsUnknownType()const;
+		bool IsClass()const;
 
 		int GetInt();
 		float GetFloat();

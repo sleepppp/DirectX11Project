@@ -1,5 +1,4 @@
-﻿
-#include <iostream>
+﻿#include <iostream>
 #include <Windows.h>
 #include <any>
 #include <functional>
@@ -10,33 +9,28 @@ using namespace std;
 #include "Method.h"
 using namespace Reflection;
 
-template<typename ...T>
-int GetCount(int c, T...args)
-{
-	return sizeof...(T);
-}
-
-template<typename ...T>
-std::tuple<T...> GetTuple(T&&... args)
-{
-	return make_tuple<T...>(std::forward<T>(args)...);
-}
-
 int main()
 {
-	//Test test;
-	//Method* method = new DeducedMethod<void(Test::*)()>("Func", &Test::Func);
-	//method->Invoke(&test);
-	//Method* method2 = new DeducedMethod<void(Test::*)(int)>("Print", &Test::Print);
-	//method2->Invoke(&test, 100);
-	//
-	//delete method2;
-	//delete method;
+	Type<Test> type = Reflection::GetType<Test>();
+	vector<shared_ptr<Method>> methods = type.GetMethods();
+	vector<shared_ptr<Field>> fields = type.GetFields();
+	Test* t = type.CreateInstance();
 
-	Value value(100);
-	Value value2(200);
+	cout << "ClassName : " << type.GetName().c_str() << endl;
 
-	std::tuple t = std::make_tuple(&value,&value2);
-	cout << t._Myfirst._Val->GetInt() << endl;
+	for (int i = 0; i < methods.size(); ++i)
+	{
+		cout << "Method : " <<methods[i].get()->GetName() << endl;
+	}
+
+	for (int i = 0; i < fields.size(); ++i)
+	{
+		cout << "Field : " << fields[i].get()->GetName() << endl;
+		fields[i].get()->SetValue(t, 100);
+	}
+
+	cout << "Test::i : " << t->i << endl;
+
+	delete t;
 }
 

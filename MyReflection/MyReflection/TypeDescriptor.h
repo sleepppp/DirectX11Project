@@ -40,7 +40,7 @@ namespace Reflection
     template<> class Reflection::TypeDescriptor<type> { \
     public: \
         static std::string Descriptor() { return #type; } \
-    }
+    };
 
 #define TYPE_DESCRIPTOR_MACRO_T(type, ...) \
     template<__VA_ARGS__> class Reflection::TypeDescriptor<type<__VA_ARGS__>> { \

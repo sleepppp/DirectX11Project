@@ -153,6 +153,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Class.cpp" />
+    <ClCompile Include="DefineReflection.cpp" />
+    <ClCompile Include="Descriptor.cpp" />
     <ClCompile Include="Field.cpp" />
     <ClCompile Include="Method.cpp" />
     <ClCompile Include="MyReflection2.cpp" />
@@ -161,6 +164,9 @@
     <ClCompile Include="Value.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Class.h" />
+    <ClInclude Include="DefineReflection.h" />
+    <ClInclude Include="Descriptor.h" />
     <ClInclude Include="Field.h" />
     <ClInclude Include="Method.h" />
     <ClInclude Include="Test.h" />

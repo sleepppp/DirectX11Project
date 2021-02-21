@@ -61,6 +61,16 @@ bool Reflection::Value::IsUnknownType() const
 	return false;
 }
 
+bool Reflection::Value::IsClass() const
+{
+	static const char* functionToken = "class";
+
+	std::string typeName = mValue.type().name();
+
+	if (typeName.find(functionToken) != std::string::npos)return true;
+	return false;
+}
+
 int Reflection::Value::GetInt()
 {
 	return std::any_cast<int>(mValue);

@@ -1,6 +1,2 @@
 ﻿  MyReflection.cpp
-c:\users\pc-012\documents\github\directx11project\myreflection\myreflection\method.h(123): error C2672: 'Forward': 일치하는 오버로드된 함수가 없습니다.
-  c:\users\pc-012\documents\github\directx11project\myreflection\myreflection\method.h(122): note: 클래스 템플릿 멤버 함수 'std::shared_ptr<Reflection::Value> Reflection::DeducedMethod<void (__cdecl *)(void)>::Invoke(std::nullptr_t,Reflection::Value *[])'을(를) 컴파일하고 있습니다.
-  c:\users\pc-012\documents\github\directx11project\myreflection\myreflection\myreflection.cpp(24): note: 컴파일 중인 클래스 템플릿 인스턴스화 'Reflection::DeducedMethod<void (__cdecl *)(void)>'에 대한 참조를 확인하세요.
-c:\users\pc-012\documents\github\directx11project\myreflection\myreflection\method.h(123): error C2783: 'std::shared_ptr<Reflection::Value> Reflection::Forward(std::enable_if<std::is_void<_Ty>::value,void>::type *,M,C &,P &&...)': 'R'의 템플릿 인수를 추론할 수 없습니다.
-  c:\users\pc-012\documents\github\directx11project\myreflection\myreflection\method.h(11): note: 'Reflection::Forward' 선언을 참조하십시오.
+  MyReflection.vcxproj -> C:\Users\pc-012\Documents\GitHub\DirectX11Project\MyReflection\Debug\MyReflection.exe

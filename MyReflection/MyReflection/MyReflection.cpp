@@ -21,8 +21,6 @@ void Func()
 
 int main()
 {
-	Method* method = new DeducedMethod<void(*)()>("Func", &Func);
-	method->Invoke(nullptr);
-	delete method;
+	Class<Test> classInfo = GetClass<Test>();
 }
 

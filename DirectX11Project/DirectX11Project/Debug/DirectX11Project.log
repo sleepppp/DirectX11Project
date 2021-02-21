@@ -1,5 +1,6 @@
-﻿  EditorBase.cpp
-  EditorMainMenu.cpp
-  WindowDesc.cpp
-  코드를 생성하고 있습니다...
-  DirectX11Project.vcxproj -> C:\Users\pc-012\Documents\GitHub\DirectX11Project\DirectX11Project\Debug\DirectX11Project.exe
+﻿  stdafx.cpp
+c:\users\pc-012\documents\github\directx11project\directx11project\directx11project\system\input\input.h(14): error C3646: 'mMousePosition': 알 수 없는 재정의 지정자입니다.
+c:\users\pc-012\documents\github\directx11project\directx11project\directx11project\system\input\input.h(14): error C4430: 형식 지정자가 없습니다. int로 가정합니다. 참고: C++에서는 기본 int를 지원하지 않습니다.
+c:\users\pc-012\documents\github\directx11project\directx11project\directx11project\system\input\input.h(26): error C3646: 'GetMousePosition': 알 수 없는 재정의 지정자입니다.
+c:\users\pc-012\documents\github\directx11project\directx11project\directx11project\system\input\input.h(26): error C2059: 구문 오류: '('
+c:\users\pc-012\documents\github\directx11project\directx11project\directx11project\system\input\input.h(26): error C2334: '{' 앞에 예기치 않은 토큰이 있습니다. 명백한 함수 본문을 건너뜁니다.

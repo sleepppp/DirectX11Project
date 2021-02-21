@@ -3,6 +3,7 @@
 #include <vector>
 #include <array>
 #include <functional>
+#include <stdarg.h>
 #include "Value.h"
 
 namespace Reflection
@@ -25,27 +26,27 @@ namespace Reflection
 	{
 		std::string mName;
 	public:
-		Method(const std::string name) : mName(name) {}
+		Method(const std::string& name) : mName(name) {}
 		virtual ~Method() = default;
 
 		std::string GetName()const { return mName; }
 
 		template<typename...P>
-		std::shared_ptr<Value> Invoke(nullptr_t, P&&...);
+		std::shared_ptr<Value> Invoke(nullptr_t, P...);
 		template<typename C, typename...P>
-		std::shared_ptr<Value> Invoke(C* instance, P&&...);
+		std::shared_ptr<Value> Invoke(C* instance, P...);
 	private:
 		template<typename C>
 		std::shared_ptr<Value> InvokeNoneParam(C* instance);
 		template<typename C, typename...P>
-		std::shared_ptr<Value> InvokeParam(C* instance, P&&...);
+		std::shared_ptr<Value> InvokeParam(C* instance, P...);
 	private:
-		virtual std::shared_ptr<Value> InvokeReal(nullptr_t, Value*[]) = 0;
-		virtual std::shared_ptr<Value> InvokeReal(void*, Value*[]) = 0;
+		virtual std::shared_ptr<Value> InvokeReal(nullptr_t, std::shared_ptr<Value>[]) = 0;
+		virtual std::shared_ptr<Value> InvokeReal(void*, std::shared_ptr<Value>[]) = 0;
 	};
 
 	template<typename...P>
-	std::shared_ptr<Value> Method::Invoke(nullptr_t, P&&...args)
+	std::shared_ptr<Value> Method::Invoke(nullptr_t, P...args)
 	{
 		if (sizeof...(P) == 0)
 		{
@@ -59,7 +60,7 @@ namespace Reflection
 	}
 
 	template<typename C, typename...P>
-	std::shared_ptr<Value> Method::Invoke(C* instance, P&&...args)
+	std::shared_ptr<Value> Method::Invoke(C* instance, P...args)
 	{
 		if (sizeof...(P) == 0)
 		{
@@ -74,15 +75,16 @@ namespace Reflection
 	template<typename C>
 	inline std::shared_ptr<Value> Method::InvokeNoneParam(C * instance)
 	{
-		std::array<Value*, 0> param;
+		std::array<std::shared_ptr<Value>, 0> param;
 		return InvokeReal(instance, param.data());
 	}
 
 	template<typename C, typename ...P>
-	inline std::shared_ptr<Value> Method::InvokeParam(C * instance, P && ...args)
+	inline std::shared_ptr<Value> Method::InvokeParam(C * instance, P ...args)
 	{
-		std::tuple values = std::make_tuple((&Value(std::forward<P>(args)))...);
-		auto arrayValues = ToArray<Value*>(values);
+		auto values = std::make_tuple(std::shared_ptr<Value>(new Value(args))...);
+		auto arrayValues = ToArray<std::shared_ptr<Value>>(values);
+
 		return InvokeReal(instance, arrayValues.data());
 	}
 
@@ -94,11 +96,11 @@ namespace Reflection
 	{
 		void(*mMethod)(P...);
 	private:
-		std::shared_ptr<Value> InvokeReal(nullptr_t, Value*[])override;
-		std::shared_ptr<Value> InvokeReal(void* instance, Value*[])override;
+		std::shared_ptr<Value> InvokeReal(nullptr_t, std::shared_ptr<Value>[])override;
+		std::shared_ptr<Value> InvokeReal(void* instance, std::shared_ptr<Value>[])override;
 
 		template<size_t...I>
-		void InvokeByIndexSquence(nullptr_t, Value*[], std::index_sequence<I...>);
+		void InvokeByIndexSquence(nullptr_t, std::shared_ptr<Value>[], std::index_sequence<I...>);
 	public:
 		DeducedMethod(const std::string& name, void(*method)(P...))
 			:Method(name), mMethod(method) {}
@@ -110,23 +112,23 @@ namespace Reflection
 	};
 
 	template<typename...P>
-	std::shared_ptr<Value> DeducedMethod<void(*)(P...)>::InvokeReal(nullptr_t, Value*values[])
+	std::shared_ptr<Value> DeducedMethod<void(*)(P...)>::InvokeReal(nullptr_t, std::shared_ptr<Value>values[])
 	{
 		InvokeByIndexSquence(nullptr, values, std::make_index_sequence<sizeof...(P)>());
 		return nullptr;
 	}
 
 	template<typename...P>
-	std::shared_ptr<Value> DeducedMethod<void(*)(P...)>::InvokeReal(void* instance, Value*[])
+	std::shared_ptr<Value> DeducedMethod<void(*)(P...)>::InvokeReal(void* instance,std::shared_ptr<Value>[])
 	{
 		//전역 함수가 들어오므로 이쪽 경로를 탔다면 동작 X
 		return nullptr;
 	}
 
 	template<typename...P> template<size_t...I>
-	void DeducedMethod<void(*)(P...)>::InvokeByIndexSquence(nullptr_t, Value* values[], std::index_sequence<I...>)
+	void DeducedMethod<void(*)(P...)>::InvokeByIndexSquence(nullptr_t, std::shared_ptr<Value> values[], std::index_sequence<I...>)
 	{
-		(*mMethod)(values[I]->Get<P>()...);
+		(*mMethod)(values[I].get()->Get<P>()...);
 	}
 
 	template<typename R, typename...P>
@@ -134,11 +136,11 @@ namespace Reflection
 	{
 		R(*mMethod)(P...);
 	private:
-		std::shared_ptr<Value> InvokeReal(nullptr_t, Value*[])override;
-		std::shared_ptr<Value> InvokeReal(void* instance, Value*[])override;
+		std::shared_ptr<Value> InvokeReal(nullptr_t, std::shared_ptr<Value>[])override;
+		std::shared_ptr<Value> InvokeReal(void* instance, std::shared_ptr<Value>[])override;
 
 		template<size_t...I>
-		std::shared_ptr<Value> InvokeByIndexSquence(nullptr_t, Value*[], std::index_sequence<I...>);
+		std::shared_ptr<Value> InvokeByIndexSquence(nullptr_t, std::shared_ptr<Value>[], std::index_sequence<I...>);
 	public:
 		DeducedMethod(const std::string& name, R(*method)(P...))
 			:Method(name), mMethod(method) {}
@@ -150,23 +152,23 @@ namespace Reflection
 	};
 
 	template<typename R, typename... P>
-	std::shared_ptr<Value> DeducedMethod<R(*) (P...)>::InvokeReal(nullptr_t, Value* values[])
+	std::shared_ptr<Value> DeducedMethod<R(*) (P...)>::InvokeReal(nullptr_t, std::shared_ptr<Value> values[])
 	{
 		return InvokeByIndexSquence(nullptr, values, std::make_index_sequence<sizeof...(P)>());
 	}
 
 	template<typename R,typename...P> 
-	std::shared_ptr<Value> DeducedMethod<R(*)(P...)>::InvokeReal(void* instance, Value* values[])
+	std::shared_ptr<Value> DeducedMethod<R(*)(P...)>::InvokeReal(void* instance, std::shared_ptr<Value> values[])
 	{
 		return nullptr;
 	}
 
 	template<typename R, typename ...P>
 	template<size_t ...I>
-	inline std::shared_ptr<Value> DeducedMethod<R(*)(P...)>::InvokeByIndexSquence(nullptr_t, Value * values[], std::index_sequence<I...>)
+	inline std::shared_ptr<Value> DeducedMethod<R(*)(P...)>::InvokeByIndexSquence(nullptr_t, std::shared_ptr<Value> values[], std::index_sequence<I...>)
 	{
 		std::shared_ptr<Value> result(new Value);
-		result.get()->Set<R>((*mMethod)(values[I]->Get<P>()...));
+		result.get()->Set<R>((*mMethod)(values[I].get()->Get<P>()...));
 		return result;
 	}
 
@@ -175,11 +177,11 @@ namespace Reflection
 	{
 		void(C::*mMethod)(P...);
 	private:
-		std::shared_ptr<Value> InvokeReal(nullptr_t, Value*[])override;
-		std::shared_ptr<Value> InvokeReal(void* instance, Value*[])override;
+		std::shared_ptr<Value> InvokeReal(nullptr_t, std::shared_ptr<Value>[])override;
+		std::shared_ptr<Value> InvokeReal(void* instance, std::shared_ptr<Value>[])override;
 
 		template<size_t...I>
-		void InvokeByIndexSquence(void* instance, Value*[], std::index_sequence<I...>);
+		void InvokeByIndexSquence(void* instance, std::shared_ptr<Value>[], std::index_sequence<I...>);
 	public:
 		DeducedMethod(const std::string& name, void(C::*method)(P...))
 			:Method(name), mMethod(method) {}
@@ -191,22 +193,22 @@ namespace Reflection
 	};
 
 	template<typename C, typename...P>
-	std::shared_ptr<Value> DeducedMethod<void(C::*)(P...)>::InvokeReal(nullptr_t, Value*[])
+	std::shared_ptr<Value> DeducedMethod<void(C::*)(P...)>::InvokeReal(nullptr_t, std::shared_ptr<Value>[])
 	{
 		return nullptr;
 	}
 	template<typename C, typename...P>
-	std::shared_ptr<Value> DeducedMethod<void(C::*)(P...)>::InvokeReal(void* instance, Value* values[])
+	std::shared_ptr<Value> DeducedMethod<void(C::*)(P...)>::InvokeReal(void* instance, std::shared_ptr<Value> values[])
 	{
 		InvokeByIndexSquence(instance, values, std::make_index_sequence<sizeof...(P)>());
 		return nullptr;
 	}
 
 	template<typename C, typename...P> template<size_t...I>
-	void DeducedMethod<void(C::*)(P...)>::InvokeByIndexSquence(void* instance, Value* values[], std::index_sequence<I...>)
+	void DeducedMethod<void(C::*)(P...)>::InvokeByIndexSquence(void* instance, std::shared_ptr<Value> values[], std::index_sequence<I...>)
 	{
 		C* classInstance = static_cast<C*>(instance);
-		(classInstance->*mMethod)(values[I]->Get<P>()...);
+		(classInstance->*mMethod)(values[I].get()->Get<P>()...);
 	}
 
 	template<typename R, typename C, typename...P>
@@ -214,11 +216,11 @@ namespace Reflection
 	{
 		R(C::*mMethod)(P...);
 	private:
-		std::shared_ptr<Value> InvokeReal(nullptr_t, Value*[])override;
-		std::shared_ptr<Value> InvokeReal(void* instance, Value*[])override;
+		std::shared_ptr<Value> InvokeReal(nullptr_t, std::shared_ptr<Value>[])override;
+		std::shared_ptr<Value> InvokeReal(void* instance, std::shared_ptr<Value>[])override;
 
 		template<size_t...I>
-		std::shared_ptr<Value> InvokeByIndexSquence(void* instance, Value*[], std::index_sequence<I...>);
+		std::shared_ptr<Value> InvokeByIndexSquence(void* instance, std::shared_ptr<Value>[], std::index_sequence<I...>);
 	public:
 		DeducedMethod(const std::string& name, R(C::*method)(P...))
 			:Method(name), mMethod(method) {}
@@ -230,23 +232,23 @@ namespace Reflection
 	};
 
 	template<typename R, typename C, typename ...P>
-	std::shared_ptr<Value> DeducedMethod<R(C::*)(P...)>::InvokeReal(nullptr_t, Value*[])
+	std::shared_ptr<Value> DeducedMethod<R(C::*)(P...)>::InvokeReal(nullptr_t, std::shared_ptr<Value>[])
 	{
 		return nullptr;
 	}
 
 	template<typename R, typename C, typename ...P>
-	std::shared_ptr<Value> DeducedMethod<R(C::*)(P...)>::InvokeReal(void* instance, Value* values[])
+	std::shared_ptr<Value> DeducedMethod<R(C::*)(P...)>::InvokeReal(void* instance, std::shared_ptr<Value> values[])
 	{
 		return InvokeByIndexSquence(instance, values, std::make_index_sequence<sizeof...(P)>());
 	}
 
 	template<typename R, typename C, typename ...P> template<size_t...I>
-	inline std::shared_ptr<Value> DeducedMethod<R(C::*)(P...)>::InvokeByIndexSquence(void * instance, Value *values[], std::index_sequence<I...>)
+	inline std::shared_ptr<Value> DeducedMethod<R(C::*)(P...)>::InvokeByIndexSquence(void * instance, std::shared_ptr<Value>values[], std::index_sequence<I...>)
 	{
 		std::shared_ptr<Value> result(new Value());
 		C* classInstance = static_cast<C*>(instance);
-		result.get()->Set<R>((classInstance->*mMethod)(values[I]->Get<P>()...));
+		result.get()->Set<R>((classInstance->*mMethod)(values[I].get()->Get<P>()...));
 		return result;
 	}
 
