@@ -41,6 +41,7 @@
 *.exe
 *.out
 *.app
+*.ipch
 
 ### Windows ###
 # Windows thumbnail cache files
